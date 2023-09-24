@@ -20,7 +20,7 @@ enum AbnormalState {
 /// 描述: 异常页面展示
 /// 注：这里仅提供几种常用异常页面，需要其他内容异常页面自行实现 EmptyStateWidget
 /// /// /// /// /// /// /// /// /// /
-class BrnAbnormalStateUtils {
+class AbnormalStateUtils {
   /// 通过状态获取对应空页面widget
   /// status: 页面状态类型为[EmptyState]
   static Widget getEmptyWidgetByState(

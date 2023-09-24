@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# phoenix_empty
-Flutter 企业级组件: empty
-=======
 <!--
  * @Author: lipeng 1162423147@qq.com
  * @Date: 2023-09-24 10:46:36
@@ -44,4 +40,4 @@ const like = 'sample';
 ## Additional information
 
 phoenix 将做为企业级基础组件:Empty,提供项目支持。
->>>>>>> 35eaf96 ([new] 新建)
+
