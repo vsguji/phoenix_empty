@@ -3,6 +3,7 @@ import 'package:phoenix_base/phoenix.dart';
 import 'package:phoenix_empty/extension/empty_total_config.dart';
 
 import 'config/abnormal_state_config.dart';
+import 'extension/empty_assets.dart';
 
 /// 页面状态
 enum AbnormalState {
@@ -28,7 +29,7 @@ class AbnormalStateUtils {
       {Image? img, BrnEmptyStatusIndexedActionClickCallback? action}) {
     if (AbnormalState.getDataFailed == status) {
       return BrnAbnormalStateWidget(
-        img: img ?? PhoenixTools.getAssetImage(BaseAsset.noData),
+        img: img ?? PhoenixTools.getAssetImage(EmptyAssets.noData),
         title: BrnIntl.of(context).localizedResource.fetchErrorAndRetry,
         operateTexts: <String>[
           BrnIntl.of(context).localizedResource.clickPageAndRetry
@@ -37,7 +38,7 @@ class AbnormalStateUtils {
       );
     } else if (AbnormalState.networkConnectError == status) {
       return BrnAbnormalStateWidget(
-        img: img ?? PhoenixTools.getAssetImage(BaseAsset.networkError),
+        img: img ?? PhoenixTools.getAssetImage(EmptyAssets.networkError),
         title: BrnIntl.of(context).localizedResource.netErrorAndRetryLater,
         operateTexts: <String>[
           BrnIntl.of(context).localizedResource.clickPageAndRetry
@@ -46,7 +47,7 @@ class AbnormalStateUtils {
       );
     } else if (AbnormalState.noData == status) {
       return BrnAbnormalStateWidget(
-          img: img ?? PhoenixTools.getAssetImage(BaseAsset.noData),
+          img: img ?? PhoenixTools.getAssetImage(EmptyAssets.noData),
           title: BrnIntl.of(context).localizedResource.noDataTip);
     } else {
       return const SizedBox.shrink();
