@@ -26,9 +26,9 @@ class AbnormalStateUtils {
   /// status: 页面状态类型为[EmptyState]
   static Widget getEmptyWidgetByState(
       BuildContext context, AbnormalState status,
-      {Image? img, BrnEmptyStatusIndexedActionClickCallback? action}) {
+      {Image? img, EmptyStatusIndexedActionClickCallback? action}) {
     if (AbnormalState.getDataFailed == status) {
-      return BrnAbnormalStateWidget(
+      return AbnormalStateWidget(
         img: img ?? PhoenixTools.getAssetImage(EmptyAssets.noData),
         title: BrnIntl.of(context).localizedResource.fetchErrorAndRetry,
         operateTexts: <String>[
@@ -37,7 +37,7 @@ class AbnormalStateUtils {
         action: action,
       );
     } else if (AbnormalState.networkConnectError == status) {
-      return BrnAbnormalStateWidget(
+      return AbnormalStateWidget(
         img: img ?? PhoenixTools.getAssetImage(EmptyAssets.networkError),
         title: BrnIntl.of(context).localizedResource.netErrorAndRetryLater,
         operateTexts: <String>[
@@ -46,7 +46,7 @@ class AbnormalStateUtils {
         action: action,
       );
     } else if (AbnormalState.noData == status) {
-      return BrnAbnormalStateWidget(
+      return AbnormalStateWidget(
           img: img ?? PhoenixTools.getAssetImage(EmptyAssets.noData),
           title: BrnIntl.of(context).localizedResource.noDataTip);
     } else {
@@ -69,11 +69,11 @@ enum OperateAreaType {
 
 /// 空页面操作区域按钮的点击回调
 /// index: 被点击按钮的索引
-typedef BrnEmptyStatusIndexedActionClickCallback = void Function(int index);
+typedef EmptyStatusIndexedActionClickCallback = void Function(int index);
 
 /// 异常页面展示一般用于网络错误、数据为空的提示和引导
 // ignore: must_be_immutable
-class BrnAbnormalStateWidget extends StatelessWidget {
+class AbnormalStateWidget extends StatelessWidget {
   /// 图片
   final Image? img;
 
@@ -90,7 +90,7 @@ class BrnAbnormalStateWidget extends StatelessWidget {
   final List<String>? operateTexts;
 
   /// 点击事件回调
-  final BrnEmptyStatusIndexedActionClickCallback? action;
+  final EmptyStatusIndexedActionClickCallback? action;
 
   /// 是否可点击页面回调配合[action]使用
   /// 当为true时调用[action]回调，当为false时不做处理
@@ -114,7 +114,8 @@ class BrnAbnormalStateWidget extends StatelessWidget {
 
   AbnormalStateConfig? themeData;
 
-  BrnAbnormalStateWidget({
+  AbnormalStateWidget({
+    super.key,
     this.img,
     this.title,
     this.content,
