@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'abnormal_entry_page.dart';
 import 'abnormal_state_example.dart';
 import 'list_item.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: AbnormalStatesEntryPage('Empty'),
     );
   }
 }
